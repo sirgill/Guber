@@ -113,6 +113,8 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "logoutSegue" {
             
+            locationManager.stopUpdatingLocation()
+            
             PFUser.logOut()
         }
     }
@@ -136,12 +138,15 @@ class RiderViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         query.findObjectsInBackground(block: { (objects, error) in
             
-            if let riderRequests = objects {
+            if let objects = objects {
+                
+                if objects.count > 0 {
                 
                 self.riderRequestActive = true
                 
                 self.callAnGuberButton.setTitle("Cancel Guber", for: [])
                 
+            }
             }
             
             self.callAnGuberButton.isHidden = false

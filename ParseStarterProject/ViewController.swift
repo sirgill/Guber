@@ -75,7 +75,7 @@ class ViewController: UIViewController {
                             
                             if isDriver {
                                 
-                                
+                                 self.performSegue(withIdentifier: "showDriverViewController", sender: self)
                                 
                             } else {
                                 
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
                             
                             if isDriver {
                                 
-                                
+                                 self.performSegue(withIdentifier: "showDriverViewController", sender: self)
                                 
                             } else {
                                 
@@ -193,7 +193,7 @@ class ViewController: UIViewController {
             
             if isDriver {
                 
-                
+                 performSegue(withIdentifier: "showDriverViewController", sender: self)
                 
             } else {
                 
